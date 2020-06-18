@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -36,4 +38,41 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * 重新登录页面
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showLoginForm()
+    {
+        return view('web.home.login');
+    }
+
+    /**
+     * 登录方法
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+/*    public function login(Request $request)
+    {
+        if (auth()->attempt($request->only(['name','password']))){
+            session()->flash('success','登录成功！');
+            return redirect()->route('admin.home');
+        }else{
+            return back()->with('error','用户名货密码错误！');
+        }
+    }*/
+
+
+    /**
+     * 用户名登录
+     * @return string
+     */
+    public function username()
+  {
+      return 'name';
+  }
+
+
+
 }
