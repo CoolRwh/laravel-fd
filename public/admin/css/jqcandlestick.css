@@ -1,0 +1,17 @@
+/****************************************************************
+ *																*		
+ * 						      代码库							*
+ *                        www.dmaku.com							*
+ *       		  努力创建完善、持续更新插件以及模板			*
+ * 																*
+****************************************************************/
+.jqcandlestick-container {
+  position: relative;
+  cursor: none;
+}
+.jqcandlestick-canvas {
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+}

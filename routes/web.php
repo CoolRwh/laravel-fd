@@ -24,12 +24,38 @@ Route::group([
 
     Route::resource('/article','ArticleController');
    Route::post('/article/store','ArticleController@store')->name('article.store');
- /*    Route::post('/article/update','ArticleController@update')->name('article.update');*/
-
 
 });
 
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::group([
+    'prefix'    => 'admin',
+    'namespace' => 'Admin',
+],function (){
+
+
+    Route::get('login','LoginController@showLoginForm')->name('admin.login');
+    Route::post('login','LoginController@login')->name('admin.login');
+
+
+    Route::group(['middleware'=>'auth.admin'],function (){
+        Route::get('/','HomeController@home')->name('admin.home');
+        Route::post('logout', 'LoginController@logout')->name('admin.logout');
+        Route::resource('user', 'UserController');
+//        Route::post('user/update','UserController@update')->name('admin.user.update');
+
+        Route::post('user/price','UserController@addPrice')->name('admin.user.add_price');
+
+        Route::get('article_list','ArticleListController@index')->name('admin.article.article_list');
+        Route::post('article_list/status/{id}','ArticleListController@editStatus')->name('admin.article.status');
+    });
+
+
+
+
 });
