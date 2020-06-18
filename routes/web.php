@@ -17,10 +17,14 @@ Route::post('article_image_upload','Common\Upload@upload_image')->name('article_
 
 
 Route::group([
-    'middleware' => 'auth'
+    'middleware' => ['auth'],
 ],function(){
 
     Route::get('/home','HomeController@index')->name('home');
+
+    Route::resource('/article','ArticleController');
+   Route::post('/article/store','ArticleController@store')->name('article.store');
+ /*    Route::post('/article/update','ArticleController@update')->name('article.update');*/
 
 
 });
