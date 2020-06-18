@@ -34,6 +34,7 @@ class Upload extends Controller
             if ($bool){
                 return response()->json([
                     'path' => 'article/'.$filename,
+                    'url' => asset('article/'.$filename),
                     'code' => 1,
                     'msg' => '上传成功！'
                 ],201);

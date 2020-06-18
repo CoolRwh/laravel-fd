@@ -20,12 +20,6 @@
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="{{asset('web/css/demo.css')}}" rel="stylesheet" />
 
-    <!--  Fonts and icons     -->
-    {{--    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">--}}
-    {{--    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>--}}
-    {{--    <link href="{{asset('web/css/代码库-icons.css')}}" rel="stylesheet">--}}
-
-
 </head>
 <body>
 
@@ -54,7 +48,7 @@
                 </li>
 
                 <li>
-                    <a href="">
+                    <a href="{{route('article.index')}}">
                         <i class="ti-user"></i>
                         <p>素材管理</p>
                     </a>
@@ -117,11 +111,20 @@
 
 
         <div class="content">
-
+            @if ($errors->any())
+                <div class="alert alert-danger" id="msg">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <div class="container-fluid">
 
                 @yield('content')
+
 
             </div>
         </div>
@@ -161,11 +164,6 @@
 
 </body>
 
-<!--   Core JS Files   -->
-
-{{--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>--}}
-
-
 
 <script src="{{asset('web/js/jquery-1.10.2.js')}}" type="text/javascript"></script>
 
@@ -174,21 +172,17 @@
 <!--  Checkbox, Radio & Switch Plugins -->
 <script src="{{asset('web/js/bootstrap-checkbox-radio.js')}}"></script>
 
-{{--<!--  Charts Plugin -->
-<script src="{{asset('web/js/chartist.min.js')}}"></script>
-
-<!--  Notifications Plugin    -->
-<script src="{{asset('web/js/bootstrap-notify.js')}}"></script>
-
-<!--  Google Maps Plugin    -->
-{{--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>--}}
-
-<!-- Paper Dashboard Core javascript and methods for Demo purpose -->
-
-
+{{--layui--}}
+<script src="https://cdn.bootcdn.net/ajax/libs/layui/2.5.6/layui.all.js"></script>
 @yield('myJS')
 
 <script type="text/javascript">
+
+    $('#msg').show();
+    setTimeout(function () {
+        $('#msg').hide();
+    },5000)
+
 
 </script>
 
