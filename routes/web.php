@@ -13,7 +13,7 @@
 use Illuminate\Support\Facades\Route;
 Auth::routes();
 
-
+Route::post('article_image_upload','Common\Upload@upload_image')->name('article_image_upload');
 
 
 Route::group([
@@ -21,6 +21,8 @@ Route::group([
 ],function(){
 
     Route::get('/home','HomeController@index')->name('home');
+
+
 });
 
 
