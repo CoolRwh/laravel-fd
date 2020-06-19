@@ -54,7 +54,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{route('user.info')}}">
                         <i class="ti-user"></i>
                         <p>个人信息</p>
                     </a>

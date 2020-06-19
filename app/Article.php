@@ -8,10 +8,9 @@ class Article extends Model
 {
     //
 
+    protected $table = 'articles';
+
     protected $fillable = ['title','user_id','desc','pic','type','content'];
 
 
-    public function articleList(){
-        $this->hasMany(User::class);
-    }
 }

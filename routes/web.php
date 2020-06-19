@@ -25,6 +25,10 @@ Route::group([
     Route::resource('/article','ArticleController');
    Route::post('/article/store','ArticleController@store')->name('article.store');
 
+   Route::get('user_info','UserController@getUserInfo')->name('user.info');
+
+    Route::get('user/price', 'UserController@getPrice')->name('user.price');
+
 });
 
 
